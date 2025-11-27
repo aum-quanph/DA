@@ -8,3 +8,6 @@ spring:
     password: 123456
   jpa:
     show-sql: true
+jwt:
+  expiration: 2592000
+  secretKey: bAkQVT4bs7moZqUYE2HeWNsXdUri/Hb4aEstK6VGyAA=
