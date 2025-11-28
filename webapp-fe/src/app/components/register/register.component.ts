@@ -1,13 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
-import { AuthService, Register } from '../../service/auth.service';
-import { Router } from '@angular/router';
+import {
+  FormBuilder,
+  ReactiveFormsModule,
+  Validators,
+  FormGroup,
+} from '@angular/forms';
+import { RouterLink, Router } from '@angular/router';
+import { AuthService } from '../../services/auth/auth.service';
+import { RegisterDTO } from '../../dtos/user/register.dto';
 
 @Component({
   selector: 'app-register',
-  imports: [ReactiveFormsModule, CommonModule, RouterLink,],
+  standalone: true,
+  imports: [ReactiveFormsModule, CommonModule, RouterLink],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
 })
@@ -15,42 +21,44 @@ export class RegisterComponent {
   loading = false;
   errorMessage = '';
 
-  constructor(private authService: AuthService, private router: Router) {
+  registerForm: FormGroup;
 
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private fb: FormBuilder,
+  ) {
+   
+    this.registerForm = this.fb.nonNullable.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      userName: ['', Validators.required],
+      phoneNumber: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      dateOfBirth: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmPassword: ['', Validators.required],
+    });
   }
-  registerForm = new FormGroup({
-    firstName: new FormControl('', Validators.required),
-    lastName: new FormControl('', Validators.required),
-    userName: new FormControl('', Validators.required),
-    phoneNumber: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    email: new FormControl('', Validators.email),
-    dateOfBirth: new FormControl('', Validators.required),
-    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-    confirmPassword: new FormControl('', [Validators.required, Validators.minLength(6)])
-  });
 
   onSubmit() {
     if (this.registerForm.invalid) {
       this.registerForm.markAllAsTouched();
       return;
     }
-    this.loading = true;
-    this.errorMessage = '';
 
-    const body: Register = this.registerForm.value;
+    // getRawValue() + ép kiểu sang RegisterDTO (BE/FE đã khớp field)
+    const data = this.registerForm.getRawValue() as RegisterDTO;
 
-    this.authService.register(body).subscribe({
-      next: (res) => {
+    this.authService.register(data).subscribe({
+      next: () => {
         this.router.navigate(['/login']);
       },
       error: (err) => {
-        console.error(err);
-        this.errorMessage = err.error?.message || 'Register failed';
-        this.loading = false;
+        console.log(err);
+        this.errorMessage =
+          err.error?.message || 'Register failed, please try again.';
       },
-      complete: () => {
-        this.loading = false;
-      },
-    })
+    });
   }
 }
