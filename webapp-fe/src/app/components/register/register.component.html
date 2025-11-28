@@ -1,0 +1,135 @@
+<!-- Register Component -->
+<div class="min-h-screen flex items-center justify-center
+            bg-gradient-to-br from-indigo-400 via-purple-400 to-sky-500">
+  <div class="w-full max-w-md bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg p-8">
+    <h2 class="text-2xl font-bold text-slate-800 mb-2 text-center">
+      Create your account
+    </h2>
+    <p class="text-sm text-slate-500 mb-6 text-center">
+      Join us and start using the app in a few seconds.
+    </p>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="space-y-4">
+      <!-- Username -->
+      <div>
+        <label for="username" class="block text-sm font-medium text-slate-700 mb-1">
+          User name
+        </label>
+        <input
+          id="username"
+          type="text"
+          formControlName="userName"
+          class="block w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900 shadow-sm
+                 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500
+                 placeholder:text-slate-400"
+          placeholder="thienquan_2004"
+        />
+        <p
+          *ngIf="registerForm.get('userName')?.invalid && registerForm.get('userName')?.touched"
+          class="mt-1 text-xs text-red-500"
+        >
+          Username is required
+        </p>
+      </div>
+
+      <!-- Phone number -->
+      <div>
+        <label for="phonenumber" class="block text-sm font-medium text-slate-700 mb-1">
+          Phone number
+        </label>
+        <input
+          id="phonenumber"
+          type="text"
+          formControlName="phoneNumber"
+          class="block w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900 shadow-sm
+                 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500
+                 placeholder:text-slate-400"
+          placeholder="0379 753 105"
+        />
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label for="email" class="block text-sm font-medium text-slate-700 mb-1">
+          Email
+        </label>
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          class="block w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900 shadow-sm
+                 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500
+                 placeholder:text-slate-400"
+          placeholder="you@example.com"
+        />
+      </div>
+
+      <!-- Date of birth -->
+      <div>
+        <label for="date-of-birth" class="block text-sm font-medium text-slate-700 mb-1">
+          Date of birth
+        </label>
+        <input
+          id="date-of-birth"
+          type="date"
+          formControlName="dateOfBirth"
+          class="block w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900 shadow-sm
+                 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+        />
+      </div>
+
+      <!-- Password -->
+      <div>
+        <label for="password" class="block text-sm font-medium text-slate-700 mb-1">
+          Password
+        </label>
+        <input
+          id="password"
+          type="password"
+          formControlName="password"
+          class="block w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900 shadow-sm
+                 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500
+                 placeholder:text-slate-400"
+          placeholder="••••••••"
+        />
+      </div>
+
+      <!-- Confirm password -->
+      <div>
+        <label for="confirmpassword" class="block text-sm font-medium text-slate-700 mb-1">
+          Confirm password
+        </label>
+        <input
+          id="confirmpassword"
+          type="password"
+          formControlName="confirmPassword"
+          class="block w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900 shadow-sm
+                 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500
+                 placeholder:text-slate-400"
+          placeholder="••••••••"
+        />
+      </div>
+
+      <!-- Submit button -->
+      <button
+        type="submit"
+        [disabled]="registerForm.invalid"
+        class="mt-2 w-full inline-flex items-center justify-center rounded-lg bg-indigo-600 px-4 py-2.5
+               text-sm font-semibold text-white shadow-sm
+               hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2
+               focus-visible:ring-offset-2 focus-visible:ring-indigo-500
+               disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        Sign up
+      </button>
+
+      <!-- Optional: link to login -->
+      <p class="mt-3 text-center text-xs text-slate-500">
+        Already have an account?
+        <a routerLink="/login" class="font-medium text-indigo-600 hover:text-indigo-700">
+          Sign in
+        </a>
+      </p>
+    </form>
+  </div>
+</div>
