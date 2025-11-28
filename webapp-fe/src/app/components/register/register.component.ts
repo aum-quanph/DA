@@ -36,7 +36,7 @@ export class RegisterComponent {
       phoneNumber: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       dateOfBirth: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', [Validators.required]],
       confirmPassword: ['', Validators.required],
     });
   }
@@ -47,7 +47,6 @@ export class RegisterComponent {
       return;
     }
 
-    // getRawValue() + ép kiểu sang RegisterDTO (BE/FE đã khớp field)
     const data = this.registerForm.getRawValue() as RegisterDTO;
 
     this.authService.register(data).subscribe({
