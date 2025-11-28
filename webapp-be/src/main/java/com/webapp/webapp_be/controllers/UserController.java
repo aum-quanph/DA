@@ -2,8 +2,10 @@ package com.webapp.webapp_be.controllers;
 
 import com.webapp.webapp_be.dto.UserDTO;
 import com.webapp.webapp_be.models.User;
+import com.webapp.webapp_be.response.AuthResponse;
 import com.webapp.webapp_be.services.IUserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,6 +25,22 @@ public class UserController {
             return ResponseEntity.ok(newUser);
         } catch(Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<AuthResponse> login(@RequestBody UserDTO userDTO) {
+        try {
+            AuthResponse login = userService.Login(userDTO.getUserName(), userDTO.getPassword());
+            return ResponseEntity.ok(login);
+        } catch (Exception e) {
+            e.printStackTrace(); // hoặc log.error("Login error", e);
+
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+                    AuthResponse.builder()
+                            .message("Login failed: " + e.getMessage())
+                            .build()
+            );
         }
     }
 }

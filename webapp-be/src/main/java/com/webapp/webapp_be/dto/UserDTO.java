@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Data
 @Getter
 @Setter
@@ -24,7 +26,7 @@ public class UserDTO {
     private String email;
 
     @JsonProperty("date_of_birth")
-    private String dateOfBirth;
+    private Date dateOfBirth;
 
     private String password;
 
