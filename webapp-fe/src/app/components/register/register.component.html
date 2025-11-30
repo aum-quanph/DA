@@ -10,21 +10,58 @@
     </p>
 
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="space-y-4">
+
+      <!-- First name -->
+      <div>
+        <label for="first_name" class="block text-sm font-medium text-slate-700 mb-1">
+          First Name
+        </label>
+        <input
+          id="first_name"
+          type="text"
+          formControlName="first_name"
+          class="block w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+        />
+        <p
+          *ngIf="registerForm.get('first_name')?.invalid && registerForm.get('first_name')?.touched"
+          class="mt-1 text-xs text-red-500"
+        >
+          Firstname is required
+        </p>
+      </div>
+
+      <!-- Last name -->
+      <div>
+        <label for="last_name" class="block text-sm font-medium text-slate-700 mb-1">
+          Last Name
+        </label>
+        <input
+          id="last_name"
+          type="text"
+          formControlName="last_name"
+          class="block w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+        />
+        <p
+          *ngIf="registerForm.get('last_name')?.invalid && registerForm.get('last_name')?.touched"
+          class="mt-1 text-xs text-red-500"
+        >
+          Lastname is required
+        </p>
+      </div>
+
       <!-- Username -->
       <div>
         <label for="username" class="block text-sm font-medium text-slate-700 mb-1">
-          User name
+          Username
         </label>
         <input
           id="username"
           type="text"
-          formControlName="userName"
-          class="block w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900 shadow-sm
-                 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500
-                 placeholder:text-slate-400"
+          formControlName="username"
+          class="block w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
         />
         <p
-          *ngIf="registerForm.get('userName')?.invalid && registerForm.get('userName')?.touched"
+          *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched"
           class="mt-1 text-xs text-red-500"
         >
           Username is required
@@ -33,17 +70,21 @@
 
       <!-- Phone number -->
       <div>
-        <label for="phonenumber" class="block text-sm font-medium text-slate-700 mb-1">
-          Phone number
+        <label for="phone_number" class="block text-sm font-medium text-slate-700 mb-1">
+          Phone Number
         </label>
         <input
-          id="phonenumber"
+          id="phone_number"
           type="text"
-          formControlName="phoneNumber"
-          class="block w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900 shadow-sm
-                 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500
-                 placeholder:text-slate-400"
+          formControlName="phone_number"
+          class="block w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
         />
+        <p
+          *ngIf="registerForm.get('phone_number')?.invalid && registerForm.get('phone_number')?.touched"
+          class="mt-1 text-xs text-red-500"
+        >
+          Phone number is required
+        </p>
       </div>
 
       <!-- Email -->
@@ -55,24 +96,20 @@
           id="email"
           type="email"
           formControlName="email"
-          class="block w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900 shadow-sm
-                 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500
-                 placeholder:text-slate-400"
-          placeholder="you@example.com"
+          class="block w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
         />
       </div>
 
       <!-- Date of birth -->
       <div>
-        <label for="date-of-birth" class="block text-sm font-medium text-slate-700 mb-1">
+        <label for="date_of_birth" class="block text-sm font-medium text-slate-700 mb-1">
           Date of birth
         </label>
         <input
-          id="date-of-birth"
+          id="date_of_birth"
           type="date"
-          formControlName="dateOfBirth"
-          class="block w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900 shadow-sm
-                 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+          formControlName="date_of_birth"
+          class="block w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
         />
       </div>
 
@@ -85,26 +122,20 @@
           id="password"
           type="password"
           formControlName="password"
-          class="block w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900 shadow-sm
-                 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500
-                 placeholder:text-slate-400"
-          placeholder="••••••••"
+          class="block w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
         />
       </div>
 
       <!-- Confirm password -->
       <div>
-        <label for="confirmpassword" class="block text-sm font-medium text-slate-700 mb-1">
-          Confirm password
+        <label for="confirm_password" class="block text-sm font-medium text-slate-700 mb-1">
+          Confirm Password
         </label>
         <input
-          id="confirmpassword"
+          id="confirm_password"
           type="password"
-          formControlName="confirmPassword"
-          class="block w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900 shadow-sm
-                 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500
-                 placeholder:text-slate-400"
-          placeholder="••••••••"
+          formControlName="confirm_password"
+          class="block w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
         />
       </div>
 
@@ -113,15 +144,11 @@
         type="submit"
         [disabled]="registerForm.invalid"
         class="mt-2 w-full inline-flex items-center justify-center rounded-lg bg-indigo-600 px-4 py-2.5
-               text-sm font-semibold text-white shadow-sm
-               hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2
-               focus-visible:ring-offset-2 focus-visible:ring-indigo-500
-               disabled:opacity-50 disabled:cursor-not-allowed"
+               text-sm font-semibold text-white shadow-sm"
       >
         Sign up
       </button>
 
-      <!-- Optional: link to login -->
       <p class="mt-3 text-center text-xs text-slate-500">
         Already have an account?
         <a routerLink="/login" class="font-medium text-indigo-600 hover:text-indigo-700">

@@ -34,8 +34,6 @@ public class UserController {
             AuthResponse login = userService.Login(userDTO.getUserName(), userDTO.getPassword());
             return ResponseEntity.ok(login);
         } catch (Exception e) {
-            e.printStackTrace(); // hoặc log.error("Login error", e);
-
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
                     AuthResponse.builder()
                             .message("Login failed: " + e.getMessage())

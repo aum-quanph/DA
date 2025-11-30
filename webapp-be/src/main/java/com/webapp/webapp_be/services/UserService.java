@@ -27,8 +27,16 @@ public class UserService implements IUserService {
 
     @Override
     public User Register(UserDTO userDTO) {
-        if(userRepository.existsByUserName(userDTO.getUserName())) {
-            throw new RuntimeException("Username đã tồn tại!");
+        if (userRepository.existsByUserName(userDTO.getUserName())) {
+            throw new RuntimeException("Tên người dùng đã tồn tại!");
+        }
+
+        if (userRepository.existsByPhoneNumber(userDTO.getPhoneNumber())) {
+            throw new RuntimeException("Số điện thoại đã tồn tại!");
+        }
+
+        if (userRepository.existsByEmail(userDTO.getEmail())) {
+            throw new RuntimeException("Email đã tồn tại!");
         }
         if(!userDTO.getPassword().equals(userDTO.getConfirmPassword())) {
             throw new RuntimeException("Xác nhận mật khẩu không khớp!");

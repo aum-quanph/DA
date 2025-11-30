@@ -20,7 +20,6 @@ import { RegisterDTO } from '../../dtos/user/register.dto';
 export class RegisterComponent {
   loading = false;
   errorMessage = '';
-
   registerForm: FormGroup;
 
   constructor(
@@ -28,16 +27,16 @@ export class RegisterComponent {
     private router: Router,
     private fb: FormBuilder,
   ) {
-   
+
     this.registerForm = this.fb.nonNullable.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      userName: ['', Validators.required],
-      phoneNumber: ['', Validators.required],
+      first_name: ['', Validators.required],
+      last_name: ['', Validators.required],
+      username: ['', Validators.required],
+      phone_number: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      dateOfBirth: ['', Validators.required],
-      password: ['', [Validators.required]],
-      confirmPassword: ['', Validators.required],
+      date_of_birth: ['', Validators.required],
+      password: ['', Validators.required],
+      confirm_password: ['', Validators.required],
     });
   }
 
@@ -51,12 +50,13 @@ export class RegisterComponent {
 
     this.authService.register(data).subscribe({
       next: () => {
+        alert("Đăng ký tài khoản thành công.");
         this.router.navigate(['/login']);
       },
       error: (err) => {
-        console.log(err);
-        this.errorMessage =
-          err.error?.message || 'Register failed, please try again.';
+        console.log('error: ', err)
+        this.errorMessage = err.error?.message || 'Register failed, please try again.';
+        console.log('error: ', this.errorMessage);
       },
     });
   }
