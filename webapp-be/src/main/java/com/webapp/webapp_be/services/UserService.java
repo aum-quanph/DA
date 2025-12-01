@@ -1,6 +1,7 @@
 package com.webapp.webapp_be.services;
 import com.webapp.webapp_be.component.JwtTokenUtil;
 import com.webapp.webapp_be.dto.UserDTO;
+import com.webapp.webapp_be.exceptions.FieldValidationException;
 import com.webapp.webapp_be.models.User;
 import com.webapp.webapp_be.repository.UserRepository;
 import com.webapp.webapp_be.response.AuthResponse;
@@ -12,8 +13,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -28,19 +27,21 @@ public class UserService implements IUserService {
     @Override
     public User Register(UserDTO userDTO) {
         if (userRepository.existsByUserName(userDTO.getUserName())) {
-            throw new RuntimeException("Tên người dùng đã tồn tại!");
+            throw new FieldValidationException("username", "Tên người dùng đã tồn tại!");
         }
 
         if (userRepository.existsByPhoneNumber(userDTO.getPhoneNumber())) {
-            throw new RuntimeException("Số điện thoại đã tồn tại!");
+            throw new FieldValidationException("phone_number", "Số điện thoại đã tồn tại!");
         }
 
         if (userRepository.existsByEmail(userDTO.getEmail())) {
-            throw new RuntimeException("Email đã tồn tại!");
+            throw new FieldValidationException("email", "Email đã tồn tại!");
         }
-        if(!userDTO.getPassword().equals(userDTO.getConfirmPassword())) {
-            throw new RuntimeException("Xác nhận mật khẩu không khớp!");
+
+        if (!userDTO.getPassword().equals(userDTO.getConfirmPassword())) {
+            throw new FieldValidationException("confirm_password", "Xác nhận mật khẩu không khớp!");
         }
+
         User newUser = User.builder()
                 .firstName(userDTO.getFirstName())
                 .lastName(userDTO.getLastName())
@@ -57,7 +58,6 @@ public class UserService implements IUserService {
 
     @Override
     public AuthResponse Login(String username, String password) throws Exception {
-        System.out.println("Login with username = [" + username + "]");
         User user = userRepository.findByUserName(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 

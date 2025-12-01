@@ -10,6 +10,13 @@ import { RouterLink, Router } from '@angular/router';
 import { AuthService } from '../../services/auth/auth.service';
 import { RegisterDTO } from '../../dtos/user/register.dto';
 
+export interface ErrorMessageResponse {
+  timestamp: string;
+  status: number;
+  error: string;
+  message: string;
+}
+
 @Component({
   selector: 'app-register',
   standalone: true,
@@ -50,13 +57,13 @@ export class RegisterComponent {
 
     this.authService.register(data).subscribe({
       next: () => {
-        alert("Đăng ký tài khoản thành công.");
-        this.router.navigate(['/login']);
+        setTimeout(() => {
+          this.router.navigate(['/login']);
+        }, 3000);
+        alert("Đăng ký thành công, Đang chuyển tới trang Đăng nhập.");
       },
       error: (err) => {
-        console.log('error: ', err)
-        this.errorMessage = err.error?.message || 'Register failed, please try again.';
-        console.log('error: ', this.errorMessage);
+        this.errorMessage = err.error || 'Register failed, please try again.';
       },
     });
   }
