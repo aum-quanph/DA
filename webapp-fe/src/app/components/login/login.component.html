@@ -17,13 +17,13 @@
         <input
           id="username"
           type="text"
-          formControlName="userName"
+          formControlName="username"
           class="block w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900 shadow-sm
                  focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500
                  placeholder:text-slate-400"
         />
         <p
-          *ngIf="LoginForm.get('userName')?.invalid && LoginForm.get('userName')?.touched"
+          *ngIf="LoginForm.get('username')?.invalid && LoginForm.get('username')?.touched"
           class="mt-1 text-xs text-red-500"
         >
           Username is required

@@ -33,8 +33,6 @@ export class AuthService {
     constructor(private http: HttpClient) {}
 
     register(data: RegisterDTO): Observable<UserResponse> {
-      console.log('connect with apiUrl: ', this.apiUrl)
-      console.log('data' , data);
       return this.http.post<UserResponse>(`${this.apiUrl}/register`, data);
     }
 
