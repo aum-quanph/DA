@@ -1,4 +1,4 @@
-package com.webapp.webapp_be.services;
+package com.webapp.webapp_be.services.users;
 import com.webapp.webapp_be.component.JwtTokenUtil;
 import com.webapp.webapp_be.dto.UserDTO;
 import com.webapp.webapp_be.exceptions.FieldValidationException;

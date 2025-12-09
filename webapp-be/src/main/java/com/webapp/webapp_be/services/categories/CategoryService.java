@@ -1,10 +1,12 @@
-package com.webapp.webapp_be.services;
+package com.webapp.webapp_be.services.categories;
 
 import com.webapp.webapp_be.dto.CategoryDTO;
 import com.webapp.webapp_be.models.Category;
 import com.webapp.webapp_be.repository.CategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -33,12 +35,14 @@ public class CategoryService implements ICategoryService {
     }
 
     @Override
-    public void getAllCategories() {
-        categoryRepository.findAll();
+    public List<Category> getAllCategories() {
+        return categoryRepository.findAll();
     }
 
     @Override
-    public void getCategoryById(Long categoryId) {
-        categoryRepository.findCategoryById(categoryId);
+    public Category getCategoryById(Long categoryId) {
+        return categoryRepository.findCategoryById(categoryId)
+                .orElseThrow(() -> new RuntimeException(
+                        String.format("Cannot find category by id: %d", categoryId)));
     }
 }

@@ -3,7 +3,7 @@ package com.webapp.webapp_be.controllers;
 import com.webapp.webapp_be.dto.UserDTO;
 import com.webapp.webapp_be.models.User;
 import com.webapp.webapp_be.response.AuthResponse;
-import com.webapp.webapp_be.services.IUserService;
+import com.webapp.webapp_be.services.users.IUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

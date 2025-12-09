@@ -1,4 +1,4 @@
-package com.webapp.webapp_be.services;
+package com.webapp.webapp_be.services.products;
 
 import com.webapp.webapp_be.dto.ProductDTO;
 import com.webapp.webapp_be.models.Product;

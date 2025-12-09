@@ -1,4 +1,4 @@
-package com.webapp.webapp_be.services;
+package com.webapp.webapp_be.services.products;
 
 import com.webapp.webapp_be.dto.ProductDTO;
 import com.webapp.webapp_be.models.Category;
@@ -6,7 +6,6 @@ import com.webapp.webapp_be.models.Product;
 import com.webapp.webapp_be.repository.CategoryRepository;
 import com.webapp.webapp_be.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -14,7 +13,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class ProductService implements IProductService{
+public class ProductService implements IProductService {
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
 
