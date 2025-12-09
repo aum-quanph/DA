@@ -1,6 +1,7 @@
 package com.webapp.webapp_be.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.webapp.webapp_be.models.Category;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,5 +15,5 @@ public class ProductDTO {
     private String thumbnail;
     private String description;
     @JsonProperty("category_id")
-    private Long categoryId;
+    private Category categoryId;
 }

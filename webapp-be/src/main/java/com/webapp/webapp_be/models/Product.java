@@ -1,10 +1,7 @@
 package com.webapp.webapp_be.models;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 
@@ -12,9 +9,12 @@ import java.time.LocalDate;
 @Table(name="products")
 @Getter
 @Setter
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class Product extends BaseEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
@@ -27,5 +27,5 @@ public class Product extends BaseEntity {
 
     @JoinColumn(name = "category_id")
     @ManyToOne
-    private Long categoryId;
+    private Category categoryId;
 }

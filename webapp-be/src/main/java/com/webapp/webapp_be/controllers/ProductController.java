@@ -17,8 +17,12 @@ public class ProductController {
     private final IProductService productService;
 
     @PostMapping("")
-    public ResponseEntity<Product> createProduct(@RequestBody ProductDTO productDTO) {
-        Product newProduct = new Product();
-        return ResponseEntity.ok(newProduct);
+    public ResponseEntity<?> createProduct(@RequestBody ProductDTO productDTO) {
+        try {
+            Product newProduct = productService.createProduct(productDTO);
+            return ResponseEntity.ok(newProduct);
+        } catch(Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 }
