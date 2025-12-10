@@ -2,14 +2,9 @@ package com.webapp.webapp_be.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-
 import java.util.Date;
 
 @Data
-@Getter
-@Setter
 public class UserDTO {
     @JsonProperty("first_name")
     private String firstName;

@@ -55,6 +55,7 @@ export class RegisterComponent {
 
     const data = this.registerForm.getRawValue() as RegisterDTO;
 
+    debugger
     this.authService.register(data).subscribe({
       next: () => {
         setTimeout(() => {

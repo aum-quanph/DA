@@ -33,10 +33,12 @@ export class AuthService {
     constructor(private http: HttpClient) {}
 
     register(data: RegisterDTO): Observable<UserResponse> {
+      debugger
       return this.http.post<UserResponse>(`${this.apiUrl}/register`, data);
     }
 
     login(data: LoginDTO): Observable<LoginResponse> {
+      debugger
       return this.http.post<LoginResponse>(`${this.apiUrl}/login`, data);
     }
 }

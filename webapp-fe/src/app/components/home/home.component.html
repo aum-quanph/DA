@@ -1,328 +1,87 @@
-<!-- home.component.html -->
-<div class="min-h-screen bg-slate-100 text-slate-900">
-  <!-- TOP BAR -->
-  <header class="bg-gradient-to-r from-slate-900 via-indigo-900 to-purple-900 text-slate-50">
-    <div class="max-w-6xl mx-auto px-4">
-      <!-- Row 1: logo + actions -->
-      <div class="flex items-center justify-between py-3">
-        <!-- Logo + seller -->
-        <div class="flex items-center gap-6">
-          <div class="flex items-center gap-2">
-            <div class="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center">
-              <span class="text-xl font-bold">C</span>
-            </div>
-            <div class="leading-tight">
-              <div class="text-[11px] uppercase tracking-wide opacity-80">
-                E-commerce
-              </div>
-            </div>
-          </div>
-
-          <a
-            href="#"
-            class="hidden md:inline-flex items-center text-xs font-medium bg-white/10 px-3 py-1 rounded-full hover:bg-white/20"
-          >
-            Become a seller
-          </a>
-
-          <div class="hidden md:flex items-center gap-2 text-xs opacity-90 font-semibold">
-            <span>Connect</span>
-            <div class="flex gap-1.5">
-              <button
-                class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-[11px]"
-              >
-                f
-              </button>
-              <button
-                class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-[11px]"
-              >
-                ig
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right actions -->
-        <div class="flex items-center gap-6 text-xs">
-          <button class="hidden md:inline-flex items-center gap-1 hover:text-amber-200 font-semibold">
-            <span class="material-icons text-sm"></span>
-            <span>Notification</span>
-          </button>
-          <button class="hidden md:inline-flex items-center gap-1 hover:text-amber-200 font-semibold">
-            <span class="material-icons text-sm"></span>
-            <span>Support</span>
-          </button>
-
-          <div class="flex items-center gap-2">
-            <a routerLink="/register" class="hover:text-amber-200 font-semibold">Đăng ký</a>
-            <span class="opacity-60">|</span>
-            <a routerLink="/login" class="hover:text-amber-200 font-semibold">Đăng nhập</a>
-          </div>
-        </div>
+<!-- Header Section -->
+<header class="bg-white shadow-sm sticky top-0 z-50">
+  <!-- Top Bar -->
+  <div class="bg-gray-800 text-white py-2">
+    <div class="container mx-auto px-4 flex justify-between items-center text-sm">
+      <div class="flex items-center space-x-4">
+        <span><i class="fas fa-phone-alt mr-2"></i>Hotline: 1900-1234</span>
+        <span><i class="fas fa-envelope mr-2"></i>support@shop.com</span>
       </div>
-
-      <!-- Row 2: search + cart -->
-      <div class="flex items-center gap-4 pb-4">
-        <div class="flex-1">
-          <div class="bg-slate-950/5 rounded-full flex items-center overflow-hidden shadow-sm">
-            <input
-              type="text"
-              placeholder="Type to search product"
-              class="flex-1 px-4 py-2 text-sm text-slate-900 bg-transparent outline-none border-none"
-            />
-            <button
-              class="px-5 py-2 bg-amber-500 text-sm font-semibold text-slate-900 hover:bg-amber-400"
-            >
-              Search
-            </button>
-          </div>
-          <div class="mt-1.5 flex flex-wrap gap-3 text-[11px] text-slate-200">
-            <button class="hover:text-white">Điện thoại</button>
-            <button class="hover:text-white">Đồ lót</button>
-            <button class="hover:text-white">Máy tính bảng</button>
-            <button class="hover:text-white">Thực phẩm chức năng</button>
-            <button class="hover:text-white">Thiết bị mạng</button>
-          </div>
-        </div>
-
-        <button
-          class="hidden md:flex items-center justify-center w-11 h-11 rounded-full bg-white/10 hover:bg-white/20"
-        >
-          <span class="material-icons">shopping_cart</span>
-        </button>
+      <div class="flex items-center space-x-4">
+        <a href="#" class="hover:text-gray-300">Theo dõi đơn hàng</a>
+        <a href="#" class="hover:text-gray-300">Hỗ trợ</a>
       </div>
     </div>
-  </header>
+  </div>
 
-  <!-- MAIN CONTENT -->
-  <main class="max-w-6xl mx-auto px-4 py-6">
-    <!-- Banners -->
-    <section class="grid grid-cols-1 lg:grid-cols-4 gap-4 mb-6">
-      <!-- Big banner -->
-      <div class="lg:col-span-3 bg-slate-900 rounded-xl shadow-sm overflow-hidden">
-        <div class="h-48 md:h-60 bg-gradient-to-r from-sky-800 to-emerald-800 flex">
-          <div class="flex-1 flex flex-col justify-center pl-8 gap-2 text-slate-50">
-            <div
-              class="text-xs font-semibold bg-slate-900/40 inline-flex px-2 py-0.5 rounded-full w-max"
-            >
-              7.7 – International Brand Day
-            </div>
-            <h2 class="text-xl md:text-2xl font-bold leading-snug">
-              SALE ĐẬM CỰC PHÊ
-            </h2>
-            <p class="text-sm opacity-90 max-w-md">
-              Giá đồng loạt chỉ từ 99.000đ – Giảm đến 50% cho hàng trăm sản phẩm hot.
-            </p>
-            <button
-              class="mt-2 inline-flex items-center bg-slate-50 text-emerald-700 text-xs font-semibold px-3 py-1.5 rounded-full shadow-sm hover:bg-slate-100"
-            >
-              Shop now
-            </button>
-          </div>
-          <div class="hidden md:flex items-end justify-center flex-1 pr-6 pb-2">
-            <!-- Placeholder cho hình vịt / sản phẩm -->
-            <div
-              class="w-40 h-40 bg-slate-900/40 border border-white/20 rounded-full shadow-md flex items-center justify-center text-sm text-slate-100"
-            >
-              Banner image
-            </div>
-          </div>
-        </div>
-
-        <!-- fake slider dots -->
-        <div class="px-4 py-2 flex items-center justify-center gap-1.5 bg-slate-900/90">
-          <span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>
-          <span class="w-4 h-1.5 rounded-full bg-emerald-400"></span>
-          <span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>
-          <span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>
-          <span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>
-        </div>
+  <!-- Main Header -->
+  <div class="container mx-auto px-4 py-4">
+    <div class="flex items-center justify-between">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <a href="#" class="text-2xl font-bold text-blue-600">
+          <i class="fas fa-shopping-bag mr-2"></i>ShopName
+        </a>
       </div>
 
-      <!-- Right small banners -->
-      <div class="flex flex-col gap-4">
-        <div
-          class="flex-1 bg-orange-700 rounded-xl text-slate-50 p-3 text-sm shadow-sm flex flex-col justify-between"
-        >
-          <div class="font-semibold text-xs mb-1">5.5 Còn X Ngày</div>
-          <div class="font-bold text-lg leading-tight">
-            Điệp vụ hoàn xu<br />
-            lên tới 50%
-          </div>
-          <div class="mt-2 text-[11px] opacity-90">
-            Áp dụng cho đơn hàng livestream &amp; flash sale.
-          </div>
-        </div>
-        <div
-          class="flex-1 bg-red-700 rounded-xl text-slate-50 p-3 text-sm shadow-sm flex flex-col justify-between"
-        >
-          <div class="font-semibold text-xs mb-1">5.5 Còn X Ngày</div>
-          <div class="font-bold text-lg leading-tight">
-            Bạn cần gì? Shopee cũng giao
-          </div>
-          <div class="mt-2 text-[11px] opacity-90">
-            Dịch vụ giao nhanh toàn quốc, luôn bên bạn.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Feature icons -->
-    <section class="bg-slate-900 rounded-xl shadow-sm px-4 py-3 mb-6">
-      <div class="grid grid-cols-4 md:grid-cols-8 gap-3 text-center text-[11px] text-slate-100">
-        <div class="flex flex-col items-center gap-1">
-          <div
-            class="w-9 h-9 rounded-full bg-emerald-700 flex items-center justify-center text-emerald-50 text-xs font-bold"
-          >
-            S
-          </div>
-          <span>Bảo vệ sức khỏe</span>
-        </div>
-        <div class="flex flex-col items-center gap-1">
-          <div
-            class="w-9 h-9 rounded-full bg-amber-600 flex items-center justify-center text-amber-50 text-xs font-bold"
-          >
-            Rẻ
-          </div>
-          <span>Gi Cùng Rẻ</span>
-        </div>
-        <div class="flex flex-col items-center gap-1">
-          <div
-            class="w-9 h-9 rounded-full bg-sky-700 flex items-center justify-center text-sky-50 text-xs font-bold"
-          >
-            ⏱
-          </div>
-          <span>Khung giờ săn sale</span>
-        </div>
-        <div class="flex flex-col items-center gap-1">
-          <div
-            class="w-9 h-9 rounded-full bg-teal-700 flex items-center justify-center text-teal-50 text-xs font-bold"
-          >
-            Free
-          </div>
-          <span>Miễn phí vận chuyển</span>
-        </div>
-        <div class="flex flex-col items-center gap-1">
-          <div
-            class="w-9 h-9 rounded-full bg-pink-700 flex items-center justify-center text-pink-50 text-xs font-bold"
-          >
-            Xu
-          </div>
-          <span>Hoàn xu 20%</span>
-        </div>
-        <div class="flex flex-col items-center gap-1">
-          <div
-            class="w-9 h-9 rounded-full bg-indigo-700 flex items-center justify-center text-indigo-50 text-xs font-bold"
-          >
-            %
-          </div>
-          <span>Hàng hiệu -50%</span>
-        </div>
-        <div class="flex flex-col items-center gap-1">
-          <div
-            class="w-9 h-9 rounded-full bg-sky-800 flex items-center justify-center text-sky-50 text-xs font-bold"
-          >
-            🌍
-          </div>
-          <span>Hàng quốc tế</span>
-        </div>
-        <div class="flex flex-col items-center gap-1">
-          <div
-            class="w-9 h-9 rounded-full bg-orange-700 flex items-center justify-center text-orange-50 text-xs font-bold"
-          >
-            1k
-          </div>
-          <span>Deal sốc từ 1k</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Categories -->
-    <section class="bg-slate-900 rounded-xl shadow-sm p-4">
-      <div class="flex items-center justify-between mb-4">
-        <h2 class="text-lg font-semibold tracking-wide text-slate-50">CATEGORIES</h2>
-        <div class="flex items-center gap-2">
-          <button
-            class="w-8 h-8 rounded-full border border-slate-600 flex items-center justify-center text-slate-200 hover:bg-slate-800"
-          >
-            ‹
-          </button>
-          <button
-            class="w-8 h-8 rounded-full border border-slate-600 flex items-center justify-center text-slate-200 hover:bg-slate-800"
-          >
-            ›
+      <!-- Search Bar -->
+      <div class="flex-1 max-w-2xl mx-8">
+        <div class="relative">
+          <input 
+            type="text" 
+            placeholder="Tìm kiếm sản phẩm, danh mục..." 
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+          />
+          <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700">
+            <i class="fas fa-search"></i>
           </button>
         </div>
       </div>
 
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-4">
-        <!-- Category item -->
-        <div class="flex flex-col items-center gap-2 group cursor-pointer">
-          <div
-            class="w-24 h-24 rounded-xl bg-slate-800 flex items-center justify-center overflow-hidden group-hover:ring-2 group-hover:ring-amber-400 transition"
-          >
-            <span class="text-xs text-slate-400">Image</span>
-          </div>
-          <div class="text-xs font-medium text-center text-slate-100">
-            Thời trang nam
-          </div>
-        </div>
+      <!-- User Actions -->
+      <div class="flex items-center space-x-6">
+        <!-- Account -->
+        <a href="#" class="flex flex-col items-center text-gray-700 hover:text-blue-600">
+          <i class="fas fa-user text-xl mb-1"></i>
+          <span class="text-xs">Tài khoản</span>
+        </a>
 
-        <div class="flex flex-col items-center gap-2 group cursor-pointer">
-          <div
-            class="w-24 h-24 rounded-xl bg-slate-800 flex items-center justify-center overflow-hidden group-hover:ring-2 group-hover:ring-amber-400 transition"
-          >
-            <span class="text-xs text-slate-400">Image</span>
-          </div>
-          <div class="text-xs font-medium text-center text-slate-100">
-            Điện thoại &amp; Phụ kiện
-          </div>
-        </div>
+        <!-- Wishlist -->
+        <a href="#" class="relative flex flex-col items-center text-gray-700 hover:text-blue-600">
+          <i class="fas fa-heart text-xl mb-1"></i>
+          <span class="text-xs">Yêu thích</span>
+          <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span>
+        </a>
 
-        <div class="flex flex-col items-center gap-2 group cursor-pointer">
-          <div
-            class="w-24 h-24 rounded-xl bg-slate-800 flex items-center justify-center overflow-hidden group-hover:ring-2 group-hover:ring-amber-400 transition"
-          >
-            <span class="text-xs text-slate-400">Image</span>
-          </div>
-          <div class="text-xs font-medium text-center text-slate-100">
-            Thiết bị điện tử
-          </div>
-        </div>
-
-        <div class="flex flex-col items-center gap-2 group cursor-pointer">
-          <div
-            class="w-24 h-24 rounded-xl bg-slate-800 flex items-center justify-center overflow-hidden group-hover:ring-2 group-hover:ring-amber-400 transition"
-          >
-            <span class="text-xs text-slate-400">Image</span>
-          </div>
-          <div class="text-xs font-medium text-center text-slate-100">
-            Máy tính &amp; Laptop
-          </div>
-        </div>
-
-        <div class="flex flex-col items-center gap-2 group cursor-pointer">
-          <div
-            class="w-24 h-24 rounded-xl bg-slate-800 flex items-center justify-center overflow-hidden group-hover:ring-2 group-hover:ring-amber-400 transition"
-          >
-            <span class="text-xs text-slate-400">Image</span>
-          </div>
-          <div class="text-xs font-medium text-center text-slate-100">
-            Máy ảnh &amp; Máy quay
-          </div>
-        </div>
-
-        <div class="flex flex-col items-center gap-2 group cursor-pointer">
-          <div
-            class="w-24 h-24 rounded-xl bg-slate-800 flex items-center justify-center overflow-hidden group-hover:ring-2 group-hover:ring-amber-400 transition"
-          >
-            <span class="text-xs text-slate-400">Image</span>
-          </div>
-          <div class="text-xs font-medium text-center text-slate-100">
-            Thiết bị gia dụng
-          </div>
-        </div>
+        <!-- Cart -->
+        <a href="#" class="relative flex flex-col items-center text-gray-700 hover:text-blue-600">
+          <i class="fas fa-shopping-cart text-xl mb-1"></i>
+          <span class="text-xs">Giỏ hàng</span>
+          <span class="absolute -top-2 -right-2 bg-blue-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">5</span>
+        </a>
       </div>
-    </section>
-  </main>
-</div>
+    </div>
+  </div>
+
+  <!-- Navigation Menu -->
+  <nav class="bg-gray-100 border-t border-gray-200">
+    <div class="container mx-auto px-4">
+      <ul class="flex items-center space-x-8 py-3">
+        <li class="relative group">
+          <a href="#" class="flex items-center text-gray-700 hover:text-blue-600 font-medium">
+            <i class="fas fa-bars mr-2"></i>
+            Danh mục sản phẩm
+            <i class="fas fa-chevron-down ml-2 text-xs"></i>
+          </a>
+        </li>
+        <li><a href="#" class="text-gray-700 hover:text-blue-600 font-medium">Trang chủ</a></li>
+        <li><a href="#" class="text-gray-700 hover:text-blue-600 font-medium">Khuyến mãi</a></li>
+        <li><a href="#" class="text-gray-700 hover:text-blue-600 font-medium">Sản phẩm mới</a></li>
+        <li><a href="#" class="text-gray-700 hover:text-blue-600 font-medium">Bán chạy</a></li>
+        <li><a href="#" class="text-gray-700 hover:text-blue-600 font-medium">Thương hiệu</a></li>
+        <li><a href="#" class="text-gray-700 hover:text-blue-600 font-medium">Blog</a></li>
+        <li><a href="#" class="text-gray-700 hover:text-blue-600 font-medium">Liên hệ</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>

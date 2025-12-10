@@ -34,6 +34,7 @@ export class LoginComponent {
     const data = this.LoginForm.getRawValue() as LoginDTO;
     this.auth.login(data).subscribe({
       next: (res) => {
+        debugger
         localStorage.setItem('access_token', res.token ?? '');
         localStorage.setItem('current_user', JSON.stringify(res.user));
         console.log('response: ', res);
