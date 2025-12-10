@@ -1,18 +1,16 @@
 package com.webapp.webapp_be.services.orders;
-
 import com.webapp.webapp_be.dto.OrderDTO;
 import com.webapp.webapp_be.models.Order;
 import com.webapp.webapp_be.models.User;
 import com.webapp.webapp_be.repository.OrderRepository;
 import com.webapp.webapp_be.repository.UserRepository;
 import com.webapp.webapp_be.response.OrderResponse;
+import com.webapp.webapp_be.services.IOrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
-import java.awt.print.Pageable;
 
 @Service
 @RequiredArgsConstructor
@@ -40,7 +38,18 @@ public class OrderService implements IOrderService {
 
     @Override
     public Order updateOrder(Long orderId, OrderDTO orderDTO) {
-        return null;
+        Order order = orderRepository.findById(orderId)
+                .orElseThrow(() -> new RuntimeException("Cannot find order with id: " + orderId));
+
+        order.setFullName(orderDTO.getFullName());
+        order.setPhoneNumber(orderDTO.getPhoneNumber());
+        order.setAddress(orderDTO.getAddress());
+        order.setNote(orderDTO.getNote());
+        order.setNoteShip(orderDTO.getNoteShip());
+        order.setShippingMethod(orderDTO.getShippingMethod());
+        order.setTotalMoney(orderDTO.getTotalMoney());
+
+        return orderRepository.save(order);
     }
 
     @Override

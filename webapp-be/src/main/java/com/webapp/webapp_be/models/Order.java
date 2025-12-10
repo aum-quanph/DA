@@ -2,12 +2,16 @@ package com.webapp.webapp_be.models;
 
 import jakarta.persistence.*;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
 @Entity
 @Table(name="orders")
 @Builder
+@Getter
+@Setter
 public class Order extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
