@@ -10,20 +10,29 @@ import java.time.LocalDate;
 public class OrderDTO {
     @JsonProperty("full_name")
     private String fullName;
+
     @JsonProperty("phone_number")
     private String phoneNumber;
+
     private String address;
+
     private String note;
+
     @JsonProperty("note_ship")
     private String noteShip;
-    @JsonProperty("order_date")
-    private LocalDate orderDate;
-    @JsonProperty("shipping_date")
-    private LocalDate shippingDate;
+
+//    @JsonProperty("order_date")
+//    private LocalDate orderDate;
+
     @JsonProperty("shipping_method")
     private String shippingMethod;
+
     @JsonProperty("total_money")
     private Double totalMoney;
+
+//    @JsonProperty("order_code")
+//    private String orderCode;
+
     @JsonProperty("user_id")
     private Long userId;
 }
