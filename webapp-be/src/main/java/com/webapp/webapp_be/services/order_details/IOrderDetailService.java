@@ -6,5 +6,5 @@ import com.webapp.webapp_be.models.OrderDetail;
 public interface IOrderDetailService {
     OrderDetail createOrderDetail(OrderDetailDTO orderDetailDTO);
     OrderDetail updateOrderDetail(Long orderDetailId, OrderDetailDTO orderDetailDTO);
-    void getOrderDetailById(Long orderDetailId);
+    OrderDetail getOrderDetailById(Long orderDetailId);
 }
