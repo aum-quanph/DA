@@ -6,12 +6,6 @@ import java.util.Date;
 
 @Data
 public class UserDTO {
-    @JsonProperty("first_name")
-    private String firstName;
-
-    @JsonProperty("last_name")
-    private String lastName;
-
     @JsonProperty("username")
     private String userName;
 
@@ -20,11 +14,5 @@ public class UserDTO {
 
     private String email;
 
-    @JsonProperty("date_of_birth")
-    private Date dateOfBirth;
-
     private String password;
-
-    @JsonProperty("confirm_password")
-    private String confirmPassword;
 }

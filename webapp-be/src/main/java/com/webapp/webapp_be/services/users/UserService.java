@@ -38,17 +38,10 @@ public class UserService implements IUserService {
             throw new FieldValidationException("email", "Email đã tồn tại!");
         }
 
-        if (!userDTO.getPassword().equals(userDTO.getConfirmPassword())) {
-            throw new FieldValidationException("confirm_password", "Xác nhận mật khẩu không khớp!");
-        }
-
         User newUser = User.builder()
-                .firstName(userDTO.getFirstName())
-                .lastName(userDTO.getLastName())
                 .userName(userDTO.getUserName())
                 .email(userDTO.getEmail())
                 .phoneNumber(userDTO.getPhoneNumber())
-                .dateOfBirth(userDTO.getDateOfBirth())
                 .build();
         // mã hóa
         String encodedPassword = passwordEncoder.encode(userDTO.getPassword());
@@ -72,12 +65,9 @@ public class UserService implements IUserService {
         String token = jwtTokenUtil.generateToken(user);
         UserResponseDTO userResponse = UserResponseDTO.builder()
                 .id(user.getId())
-                .firstName(user.getFirstName())
-                .lastName(user.getLastName())
                 .userName(user.getUsername())
                 .phoneNumber(user.getPhoneNumber())
                 .email(user.getEmail())
-                .dateOfBirth(user.getDateOfBirth())
                 .build();
 
         return AuthResponse.builder()
