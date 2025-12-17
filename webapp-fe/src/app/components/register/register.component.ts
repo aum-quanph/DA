@@ -7,7 +7,7 @@ import {
   FormGroup,
 } from '@angular/forms';
 import { RouterLink, Router } from '@angular/router';
-import { AuthService } from '../../services/auth/auth.service';
+import { AuthService } from '../../services/auth.service';
 import { RegisterDTO } from '../../dtos/user/register.dto';
 
 export interface ErrorMessageResponse {
@@ -36,14 +36,10 @@ export class RegisterComponent {
   ) {
 
     this.registerForm = this.fb.nonNullable.group({
-      first_name: ['', Validators.required],
-      last_name: ['', Validators.required],
       username: ['', Validators.required],
       phone_number: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      date_of_birth: ['', Validators.required],
       password: ['', Validators.required],
-      confirm_password: ['', Validators.required],
     });
   }
 
@@ -54,6 +50,7 @@ export class RegisterComponent {
     }
 
     const data = this.registerForm.getRawValue() as RegisterDTO;
+    console.log('data', data);
 
     debugger
     this.authService.register(data).subscribe({
