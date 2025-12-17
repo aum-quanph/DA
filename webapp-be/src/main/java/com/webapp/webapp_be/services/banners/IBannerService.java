@@ -5,9 +5,11 @@ import com.webapp.webapp_be.models.Banner;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
+import java.util.List;
+
 public interface IBannerService {
     Banner createBanner(BannerDTO bannerDTO);
     Banner updateBanner(Long id, BannerDTO bannerDTO);
-    Page<Banner> getAllBanner(PageRequest pageRequest);
+    List<Banner> getAllBanner(PageRequest pageRequest);
     Banner getBannerById(Long id);
 }

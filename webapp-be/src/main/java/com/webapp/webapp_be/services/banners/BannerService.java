@@ -8,6 +8,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.time.DateTimeException;
+import java.util.List;
+
 
 @Service
 @RequiredArgsConstructor
@@ -16,23 +19,37 @@ public class BannerService implements IBannerService {
     @Override
     public Banner createBanner(BannerDTO bannerDTO) {
         Banner newBaner = Banner.builder()
-
+                .title(bannerDTO.getTitle())
+                .image(bannerDTO.getImage())
+                .subtitle(bannerDTO.getSubtitle())
+                .ctaText(bannerDTO.getCtaText())
+                .ctaLink(bannerDTO.getCtaLink())
                 .build();
-        return null;
+        return bannerRepository.save(newBaner);
     }
 
     @Override
     public Banner updateBanner(Long id, BannerDTO bannerDTO) {
-        return null;
+        Banner banner = bannerRepository.findById(id)
+                .orElseThrow(() -> new DateTimeException("Cannot find banner with id = "+id));
+
+        banner.setTitle(bannerDTO.getTitle());
+        banner.setImage(bannerDTO.getImage());
+        banner.setCtaText(bannerDTO.getCtaText());
+        banner.setCtaLink(bannerDTO.getCtaLink());
+        banner.setSubtitle(bannerDTO.getSubtitle());
+
+        return bannerRepository.save(banner);
     }
 
     @Override
-    public Page<Banner> getAllBanner(PageRequest pageRequest) {
-        return null;
+    public List<Banner> getAllBanner(PageRequest pageRequest) {
+        return bannerRepository.findAll();
     }
 
     @Override
     public Banner getBannerById(Long id) {
-        return null;
+        return bannerRepository.findById(id)
+                .orElseThrow(() -> new DateTimeException("Cannot find banner with id: "+id));
     }
 }
