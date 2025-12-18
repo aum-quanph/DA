@@ -10,6 +10,6 @@ import java.util.List;
 public interface IBannerService {
     Banner createBanner(BannerDTO bannerDTO);
     Banner updateBanner(Long id, BannerDTO bannerDTO);
-    List<Banner> getAllBanner(PageRequest pageRequest);
+    List<Banner> getAllBanner();
     Banner getBannerById(Long id);
 }

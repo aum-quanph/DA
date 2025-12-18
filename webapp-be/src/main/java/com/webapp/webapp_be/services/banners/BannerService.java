@@ -43,7 +43,7 @@ public class BannerService implements IBannerService {
     }
 
     @Override
-    public List<Banner> getAllBanner(PageRequest pageRequest) {
+    public List<Banner> getAllBanner() {
         return bannerRepository.findAll();
     }
 
