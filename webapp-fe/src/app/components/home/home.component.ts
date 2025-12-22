@@ -4,10 +4,13 @@ import { Router, RouterLink } from '@angular/router';
 import { CategoryService } from '../../services/category.service';
 import { environment } from '../utils/appInfor';
 import { ProductService } from '../../services/product.service';
+import { Footer } from './footer/footer.component';
+import { Header } from './header/header.component';
+import { Banner } from "./banner/banner.component";
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule],
+  imports: [CommonModule, Footer, Header, Banner],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -24,7 +27,7 @@ export class HomeComponent implements OnInit {
   }
 
   trackByProductId(index: number, item: any) {
-    return item.id; // hoặc item._id tùy API
+    return item.id;
   }
 
 
@@ -62,5 +65,9 @@ export class HomeComponent implements OnInit {
         console.error(err);
       }
     })
+  }
+
+  scrollTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
