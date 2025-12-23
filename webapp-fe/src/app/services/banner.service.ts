@@ -8,7 +8,7 @@ import { BannerResponse } from "../responses/banner/banner.response";
     providedIn: 'root',
 })
 
-class BannerService {
+export class BannerService {
     constructor(private http: HttpClient) {}
 
     getAllBanner() {

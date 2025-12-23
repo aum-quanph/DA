@@ -38,7 +38,6 @@ export class HomeComponent implements OnInit {
         //   category.url = `${environment.apiUrl}/categories/images/${category.image}`;
         // });
         this.categories = response;
-        console.log('Categories: ', response);
       },
       complete: () => {
         console.log('Finished fetching categories.');
@@ -56,7 +55,6 @@ export class HomeComponent implements OnInit {
         //   product.url = `${environment.apiUrl}/products/images/${product.image}`
         // });
         this.products = response;
-        console.log('products: ', response);
       },
       complete: () => {
         console.log("successfull");
