@@ -6,6 +6,7 @@ import com.webapp.webapp_be.models.Product;
 import com.webapp.webapp_be.models.ProductImage;
 import com.webapp.webapp_be.services.products.IProductService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
@@ -135,4 +137,23 @@ public class ProductController {
             return ResponseEntity.badRequest().build();
         }
     }
+
+    @GetMapping("/images/{imageName}")
+    public ResponseEntity<?> viewImage(@PathVariable String imageName) {
+        try {
+            java.nio.file.Path imagePath = Paths.get("uploads/" + imageName);
+            UrlResource urlResource = new UrlResource(imagePath.toUri());
+
+            if(urlResource.exists()) {
+                return ResponseEntity.ok()
+                        .contentType(MediaType.IMAGE_JPEG)
+                        .body(urlResource);
+            } else {
+                return ResponseEntity.notFound().build();
+            }
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 }

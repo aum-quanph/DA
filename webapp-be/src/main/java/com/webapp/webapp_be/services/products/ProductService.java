@@ -31,6 +31,7 @@ public class ProductService implements IProductService {
         Product product = Product.builder()
                 .name(productDTO.getName())
                 .price(productDTO.getPrice())
+                .discount(productDTO.getDiscount())
                 .description(productDTO.getDescription())
                 .thumbnail(productDTO.getThumbnail())
                 .category(category)
@@ -48,6 +49,7 @@ public class ProductService implements IProductService {
 
         existProduct.setName(productDTO.getName());
         existProduct.setPrice(productDTO.getPrice());
+        existProduct.setDiscount(productDTO.getDiscount());
         existProduct.setThumbnail(productDTO.getThumbnail());
         existProduct.setDescription(productDTO.getDescription());
         existProduct.setCategory(category);
@@ -86,6 +88,13 @@ public class ProductService implements IProductService {
                     "Number of images must be <= "
                             +ProductImage.MAXIMUM_IMAGES_PER_PRODUCT);
         }
-        return productImageRepository.save(newProductImage);
+        ProductImage savedImage = productImageRepository.save(newProductImage);
+        String thumb = existingProduct.getThumbnail();
+        if (thumb == null || thumb.trim().isEmpty()) {
+            existingProduct.setThumbnail(savedImage.getImageUrl());
+            productRepository.save(existingProduct);
+        }
+
+        return savedImage;
     }
 }
