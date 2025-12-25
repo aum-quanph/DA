@@ -11,8 +11,7 @@
           <a href="#" class="hover:underline">Men’s Fashion</a>
           <i class="fa-solid fa-chevron-right text-gray-800 text-xs"></i>
         </li>
-        <li *ngFor="let c of categories" class="py-2 pr-6"><a href="#"
-            class="hover:underline">{{c.name}}</a></li>
+        <li *ngFor="let c of categories" class="py-2 pr-6"><a href="#" class="hover:underline">{{c.name}}</a></li>
       </ul>
     </aside>
     <app-banner class="lg:col-span-9 block"></app-banner>
@@ -68,46 +67,50 @@
     </div>
   </div>
 
-  <!-- products row -->
-  <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-
-    <!-- CARD: loop -->
-    <div *ngFor="let p of products; trackBy: trackByProductId" class="rounded-md border bg-white overflow-hidden">
-
-      <div class="relative bg-gray-100 h-40 sm:h-48 flex items-center justify-center">
-        <!-- discount (nếu có) -->
-        <span *ngIf="p.discount" class="absolute top-3 left-3 bg-red-500 text-white text-xs px-2 py-1 rounded">
-          -{{ p.discount }}%
-        </span>
-
-        <div class="absolute top-3 right-3 flex flex-col gap-2">
-          <button class="w-8 h-8 rounded-full bg-white hover:bg-gray-50 flex items-center justify-center">♥</button>
-          <button class="w-8 h-8 rounded-full bg-white hover:bg-gray-50 flex items-center justify-center">👁</button>
-        </div>
-
-        <img [src]="p.url" [alt]="p.name" class="h-24 sm:h-28 object-contain" />
-      </div>
-
-      <div class="p-4">
-        <p class="text-sm font-medium line-clamp-1">{{ p.name }}</p>
-
-        <div class="mt-2 flex items-center gap-2">
-          <span class="text-red-500 font-semibold">
-            {{ p.price | currency:'USD':'symbol':'1.0-0' }}
+  <!-- products slider -->
+  <swiper-container class="mt-8 product-swiper" [spaceBetween]="16" [freeMode]="true" [slidesPerView]="4.5">
+    <swiper-slide *ngFor="let p of products; trackBy: trackByProductId">
+      <div class="rounded-md border bg-white overflow-hidden">
+        <div class="relative bg-gray-200 h-40 sm:h-48 flex items-center justify-center">
+          <span *ngIf="p.discount" class="absolute top-3 left-3 bg-red-500 text-white text-xs px-2 py-1 rounded">
+            -{{ p.discount }}%
           </span>
 
-          <span *ngIf="p.oldPrice" class="text-gray-400 line-through text-sm">
-            {{ p.oldPrice | currency:'USD':'symbol':'1.0-0' }}
-          </span>
+          <div class="absolute top-3 right-3 flex flex-col gap-2">
+            <button class="w-8 h-8 rounded-full bg-white hover:bg-gray-50 flex items-center justify-center">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <button class="w-8 h-8 rounded-full bg-white hover:bg-gray-50 flex items-center justify-center">
+              <i class="fa-solid fa-eye"></i>
+            </button>
+          </div>
+
+          <div class="bg-white w-[160px] h-[160px] sm:w-[180px] sm:h-[180px] flex items-center justify-center">
+            <img [src]="p.url" [alt]="p.name" class="max-w-[80%] max-h-[80%] object-contain" />
+          </div>
         </div>
 
-        <div class="mt-2 text-xs text-gray-500">
-          ★★★★★ ({{ p.ratingCount || 0 }})
+        <div class="p-4">
+          <p class="text-sm font-medium line-clamp-1">{{ p.name }}</p>
+
+          <div class="mt-2 flex items-center gap-2">
+            <span class="text-red-500 font-semibold">
+              {{ p.price | currency:'USD':'symbol':'1.0-0' }}
+            </span>
+
+            <span *ngIf="p.oldPrice" class="text-gray-400 line-through text-sm">
+              {{ p.oldPrice | currency:'USD':'symbol':'1.0-0' }}
+            </span>
+          </div>
+
+          <div class="mt-2 text-xs text-gray-500">
+            ★★★★★ ({{ p.ratingCount || 0 }})
+          </div>
         </div>
       </div>
+    </swiper-slide>
+  </swiper-container>
 
-    </div>
-  </div>
 </section>
 <div class="flex justify-center mt-5">
   <button class="bg-red-500 p-2 pr-6 pl-6 rounded-sm">View All Products</button>

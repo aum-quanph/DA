@@ -1,0 +1,5 @@
+.banner-swiper::part(container) {
+  border-radius: 16px;   /* tương đương rounded-xl */
+  overflow: hidden;      /* CỰC KỲ QUAN TRỌNG để cắt góc */
+  background: #000;      /* tránh lộ nền trắng khi kéo */
+}
