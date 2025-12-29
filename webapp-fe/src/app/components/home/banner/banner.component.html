@@ -1,32 +1,39 @@
-<swiper-container class="banner-swiper block w-full
-  [--swiper-pagination-color:white]
-         [--swiper-pagination-bullet-inactive-color:rgba(255,255,255,.30)]
-         [--swiper-pagination-bullet-inactive-opacity:1]
-         [--swiper-pagination-bullet-size:8px]
-         [--swiper-pagination-bottom:16px]" loop="true" speed="1000" autoplay="true" autoplay-delay="3000"
-  autoplay-disable-on-interaction="false" pagination="true" pagination-clickable="true" space-between="0">
-  <swiper-slide *ngFor="let b of banners" class="bg-black">
-    <div class="banner h-[220px] sm:h-[280px] lg:h-[320px] bg-black flex overflow-hidden ">
+<swiper-container
+  class="banner-swiper"
+  loop="true"
+  speed="1000"
+  autoplay="true"
+  autoplay-delay="3000"
+  autoplay-disable-on-interaction="false"
+  pagination="true"
+  pagination-clickable="true"
+  space-between="0"
+>
+  <swiper-slide *ngFor="let b of banners" class="banner-slide">
+    <div class="banner">
       <!-- Left -->
-      <div class="flex-1 p-6 sm:p-10 flex flex-col justify-center min-w-0">
-        <div class="text-xl text-white mb-3 line-clamp-1">
+      <div class="banner__left">
+        <div class="banner__title">
           {{ b.title }}
         </div>
 
-        <h2 class="text-2xl text-white sm:text-3xl font-semibold leading-tight line-clamp-3">
+        <h2 class="banner__subtitle">
           {{ b.subtitle }}
         </h2>
 
-        <a [href]="b.ctaLink || '#'"
-          class="mt-4 text-white inline-flex items-center gap-2 text-sm underline underline-offset-4">
-          <span class="line-clamp-1">{{ b.ctaText }}</span>
-          <i class="fa-solid fa-arrow-right text-white text-xs"></i>
+        <a [href]="b.ctaLink || '#'" class="banner__cta">
+          <span class="banner__ctaText">{{ b.ctaText }}</span>
+          <i class="fa-solid fa-arrow-right banner__ctaIcon"></i>
         </a>
       </div>
 
       <!-- Right -->
-      <div class="w-[42%] sm:w-[40%] lg:w-[38%] flex items-center justify-center p-6 sm:p-10">
-        <img class="w-full h-full object-contain" [src]="b.image || 'assets/images/banner.jpg'" alt="Banner product" />
+      <div class="banner__right">
+        <img
+          class="banner__img"
+          [src]="b.image || 'assets/images/banner.jpg'"
+          alt="Banner product"
+        />
       </div>
     </div>
   </swiper-slide>

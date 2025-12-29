@@ -1,18 +1,17 @@
-<footer class="bg-black text-white mt-16">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
+<footer class="footer">
+  <div class="footer__container">
+    <div class="footer__grid">
       <!-- Column 1 -->
-      <div>
-        <h3 class="text-xl font-semibold">Exclusive</h3>
+      <div class="footer__col">
+        <h3 class="footer__brand">Exclusive</h3>
 
-        <p class="mt-5 font-medium">Subscribe</p>
-        <p class="mt-2 text-sm text-white/70">Get 10% off your first order</p>
+        <p class="footer__lead">Subscribe</p>
+        <p class="footer__muted">Get 10% off your first order</p>
 
-        <div class="mt-4 flex items-center border border-white/40 rounded-md overflow-hidden h-11 max-w-[260px]">
-          <input type="email" placeholder="Enter your email"
-            class="w-full bg-transparent px-4 text-sm placeholder:text-white/50 focus:outline-none" />
-          <button type="button" class="px-4 h-full flex items-center justify-center hover:bg-white/10">
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <div class="footer__subscribe">
+          <input type="email" placeholder="Enter your email" class="footer__input" />
+          <button type="button" class="footer__send" aria-label="Subscribe">
+            <svg class="footer__sendIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M22 2L11 13" />
               <path d="M22 2L15 22l-4-9-9-4 20-7z" />
             </svg>
@@ -21,9 +20,9 @@
       </div>
 
       <!-- Column 2 -->
-      <div>
-        <h4 class="text-lg font-medium">Support</h4>
-        <ul class="mt-5 space-y-3 text-sm text-white/70">
+      <div class="footer__col">
+        <h4 class="footer__title">Support</h4>
+        <ul class="footer__list">
           <li>111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.</li>
           <li>exclusive@gmail.com</li>
           <li>+88015-88888-9999</li>
@@ -31,72 +30,72 @@
       </div>
 
       <!-- Column 3 -->
-      <div>
-        <h4 class="text-lg font-medium">Account</h4>
-        <ul class="mt-5 space-y-3 text-sm text-white/70">
-          <li><a href="#" class="hover:text-white">My Account</a></li>
-          <li><a href="#" class="hover:text-white">Login / Register</a></li>
-          <li><a href="#" class="hover:text-white">Cart</a></li>
-          <li><a href="#" class="hover:text-white">Wishlist</a></li>
-          <li><a href="#" class="hover:text-white">Shop</a></li>
+      <div class="footer__col">
+        <h4 class="footer__title">Account</h4>
+        <ul class="footer__list">
+          <li><a href="#" class="footer__link">My Account</a></li>
+          <li><a href="#" class="footer__link">Login / Register</a></li>
+          <li><a href="#" class="footer__link">Cart</a></li>
+          <li><a href="#" class="footer__link">Wishlist</a></li>
+          <li><a href="#" class="footer__link">Shop</a></li>
         </ul>
       </div>
 
       <!-- Column 4 -->
-      <div>
-        <h4 class="text-lg font-medium">Quick Link</h4>
-        <ul class="mt-5 space-y-3 text-sm text-white/70">
-          <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
-          <li><a href="#" class="hover:text-white">Terms Of Use</a></li>
-          <li><a href="#" class="hover:text-white">FAQ</a></li>
-          <li><a href="#" class="hover:text-white">Contact</a></li>
+      <div class="footer__col">
+        <h4 class="footer__title">Quick Link</h4>
+        <ul class="footer__list">
+          <li><a href="#" class="footer__link">Privacy Policy</a></li>
+          <li><a href="#" class="footer__link">Terms Of Use</a></li>
+          <li><a href="#" class="footer__link">FAQ</a></li>
+          <li><a href="#" class="footer__link">Contact</a></li>
         </ul>
       </div>
 
       <!-- Column 5 -->
-      <div>
-        <h4 class="text-lg font-medium">Download App</h4>
-        <p class="mt-5 text-xs text-white/60">Save $3 with App New User Only</p>
+      <div class="footer__col">
+        <h4 class="footer__title">Download App</h4>
+        <p class="footer__hint">Save $3 with App New User Only</p>
 
-        <div class="mt-4 flex items-center gap-4">
-          <!-- QR -->
-          <div class="w-20 h-20 bg-white rounded-sm p-1">
-            <img src="assets/images/qr.png" alt="QR Code" class="w-full h-full object-contain" />
+        <div class="footer__download">
+          <div class="footer__qr">
+            <img src="assets/images/qr.png" alt="QR Code" class="footer__qrImg" />
           </div>
 
-          <!-- Stores -->
-          <div class="flex flex-col gap-3">
-            <a href="#" class="block">
-              <img src="assets/images/google-play.png" alt="Google Play" class="h-10 object-contain" />
+          <div class="footer__stores">
+            <a href="#" class="footer__store">
+              <img src="assets/images/google-play.png" alt="Google Play" class="footer__storeImg" />
             </a>
-            <a href="#" class="block">
-              <img src="assets/images/app-store.png" alt="App Store" class="h-10 object-contain" />
+            <a href="#" class="footer__store">
+              <img src="assets/images/app-store.png" alt="App Store" class="footer__storeImg" />
             </a>
           </div>
         </div>
 
-        <!-- Social -->
-        <div class="mt-6 flex items-center gap-5 text-white/80">
-          <a href="#" class="hover:text-white" aria-label="Facebook">
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+        <div class="footer__social">
+          <a href="#" class="footer__socialLink" aria-label="Facebook">
+            <svg class="footer__socialIcon" viewBox="0 0 24 24" fill="currentColor">
               <path
                 d="M13.5 22v-8h2.7l.4-3H13.5V9.1c0-.9.3-1.5 1.6-1.5H16.7V5c-.3 0-1.4-.1-2.7-.1-2.7 0-4.5 1.6-4.5 4.6V11H7v3h2.5v8h4z" />
             </svg>
           </a>
-          <a href="#" class="hover:text-white" aria-label="Twitter">
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+
+          <a href="#" class="footer__socialLink" aria-label="Twitter">
+            <svg class="footer__socialIcon" viewBox="0 0 24 24" fill="currentColor">
               <path
                 d="M22 5.9c-.7.3-1.4.5-2.1.6.8-.5 1.3-1.2 1.6-2.1-.7.4-1.5.7-2.4.9A3.6 3.6 0 0 0 12.9 8c0 .3 0 .6.1.8-3-.2-5.7-1.6-7.5-3.9-.3.6-.5 1.2-.5 2 0 1.2.6 2.3 1.6 3-.6 0-1.1-.2-1.6-.4v.1c0 1.7 1.2 3.1 2.8 3.4-.3.1-.7.1-1 .1-.2 0-.5 0-.7-.1.5 1.5 1.9 2.6 3.5 2.6A7.2 7.2 0 0 1 2 18.4 10.2 10.2 0 0 0 7.5 20c6.6 0 10.3-5.6 10.3-10.4v-.5c.7-.5 1.3-1.1 1.9-1.8z" />
             </svg>
           </a>
-          <a href="#" class="hover:text-white" aria-label="Instagram">
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+
+          <a href="#" class="footer__socialLink" aria-label="Instagram">
+            <svg class="footer__socialIcon" viewBox="0 0 24 24" fill="currentColor">
               <path
                 d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4.5A5.5 5.5 0 1 1 6.5 12 5.5 5.5 0 0 1 12 8.5zm0 2A3.5 3.5 0 1 0 15.5 12 3.5 3.5 0 0 0 12 10.5zM18 6.8a1.2 1.2 0 1 1-1.2 1.2A1.2 1.2 0 0 1 18 6.8z" />
             </svg>
           </a>
-          <a href="#" class="hover:text-white" aria-label="LinkedIn">
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+
+          <a href="#" class="footer__socialLink" aria-label="LinkedIn">
+            <svg class="footer__socialIcon" viewBox="0 0 24 24" fill="currentColor">
               <path
                 d="M6.5 6.8A2.3 2.3 0 1 1 6.5 2.2a2.3 2.3 0 0 1 0 4.6zM3.9 21.8V8.6h5.2v13.2H3.9zM20.1 21.8h-5.2v-6.4c0-1.5 0-3.4-2.1-3.4s-2.4 1.6-2.4 3.3v6.5H5.2V8.6h5v1.8h.1c.7-1.3 2.4-2.6 4.9-2.6 5.2 0 6.2 3.4 6.2 7.9v6.1z" />
             </svg>
@@ -105,8 +104,7 @@
       </div>
     </div>
 
-    <!-- bottom line -->
-    <div class="mt-12 border-t border-white/10 pt-6 text-center text-sm text-white/30">
+    <div class="footer__bottom">
       © Copyright Rimel 2022. All right reserved
     </div>
   </div>

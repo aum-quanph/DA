@@ -3,3 +3,129 @@
   overflow: hidden;      /* CỰC KỲ QUAN TRỌNG để cắt góc */
   background: #000;      /* tránh lộ nền trắng khi kéo */
 }
+
+.banner-swiper {
+  display: block;
+  width: 100%;
+
+  /* Swiper CSS variables -> responsive bằng clamp */
+  --swiper-pagination-color: #fff;
+  --swiper-pagination-bullet-inactive-color: rgba(255, 255, 255, 0.3);
+  --swiper-pagination-bullet-inactive-opacity: 1;
+
+  /* 8px -> co giãn theo màn hình */
+  --swiper-pagination-bullet-size: clamp(6px, 0.6vw, 10px);
+
+  /* 16px -> co giãn theo màn hình */
+  --swiper-pagination-bottom: clamp(10px, 1.5vw, 18px);
+}
+
+.banner-slide {
+  background: #000;
+}
+
+.banner {
+  background: #000;
+  display: flex;
+  overflow: hidden;
+
+  /* height: 220 / 280 / 320 -> gom thành 1 clamp */
+  height: clamp(220px, 24vw, 320px);
+
+  &__left {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    /* p-6 (24px) -> p-10 (40px) */
+    padding: clamp(16px, 3vw, 40px);
+  }
+
+  &__right {
+    width: 42%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* p-6 (24px) -> p-10 (40px) */
+    padding: clamp(16px, 3vw, 40px);
+
+    /* width 42/40/38 -> làm mượt bằng clamp theo vw */
+    width: clamp(38%, 40vw, 42%);
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  &__title {
+    color: #fff;
+
+    /* text-xl (~20px) */
+    font-size: clamp(16px, 1.6vw, 20px);
+
+    /* mb-3 (12px) */
+    margin-bottom: clamp(8px, 1vw, 12px);
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__subtitle {
+    color: #fff;
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 0;
+
+    /* 24px -> 30px */
+    font-size: clamp(20px, 2.2vw, 30px);
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+
+  &__cta {
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+
+    /* gap-2 (8px) */
+    gap: clamp(6px, 0.9vw, 10px);
+
+    /* text-sm (14px) */
+    font-size: clamp(13px, 1.1vw, 14px);
+
+    text-decoration: underline;
+    text-underline-offset: 4px;
+
+    /* mt-4 (16px) */
+    margin-top: clamp(10px, 1.4vw, 16px);
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  &__ctaText {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+  }
+
+  &__ctaIcon {
+    color: #fff;
+
+    /* text-xs (12px) */
+    font-size: clamp(11px, 0.9vw, 12px);
+  }
+}
+

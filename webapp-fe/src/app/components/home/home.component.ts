@@ -32,6 +32,13 @@ export class HomeComponent implements OnInit {
     return item.id;
   }
 
+  onViewProducts() {
+    console.log("View all products clicked");
+  }
+
+  onClickCategory(categoryId: number) {
+    console.log("Category clicked: ", categoryId);
+  }
 
   getCategories() {
     this.categoryService.getAllCategories().subscribe({
