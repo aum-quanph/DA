@@ -238,14 +238,14 @@ a {
 .section-head__title {
     margin: 0;
     font-size: var(--fs-2xl);
-    font-weight: 700;
+    font-weight: 500;
 }
 
 /* ===== Timer ===== */
 .timer {
     display: flex;
     align-items: flex-end;
-    gap: var(--space-4);
+    gap: var(--space-3);
 }
 
 .timer__unit {
@@ -255,37 +255,33 @@ a {
 .timer__label {
     margin: 0;
     font-size: clamp(10px, 0.9vw, 11px);
-    color: var(--c-gray-500);
+    color: var(--c-gray-700);
     font-weight: 700;
 }
 
 .timer__value {
     margin: 0;
-    font-size: clamp(18px, 1.8vw, 20px);
-    font-weight: 800;
+    font-size: clamp(30px, 1.8vw, 32px);
+    font-weight: 600;
 }
 
 .timer__sep {
     color: var(--c-red);
     font-weight: 800;
-    margin-bottom: 2px;
+    margin-bottom: clamp(12px, 1.2vh, 14px);
 }
 
 .product-card {
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
     overflow: hidden;
+    flex-direction: column;
+    
 
     &__media {
-        position: relative;
         background: var(--c-gray-200);
-
-        aspect-ratio: 2 / 1;
-        height: auto;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        aspect-ratio: 1 / 1;   
+        padding: 14px;
     }
 
     &__badge {
@@ -295,23 +291,23 @@ a {
         background: var(--c-red);
         color: var(--c-white);
         font-size: var(--fs-xs);
-        padding: 4px 8px;
+        padding: 3px 6px;
         border-radius: 6px;
-        font-weight: 700;
     }
 
     &__tools {
         position: absolute;
-        top: 12px;
+        top: 10px;
         right: 12px;
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: clamp(8px, 1vh, 10px);
     }
 
     &__toolBtn {
-        width: 32px;
-        height: 32px;
+        font-size: 10px;
+        width: 22px;
+        height: 22px;
         border-radius: 999px;
         border: 0;
         cursor: pointer;
@@ -328,7 +324,7 @@ a {
     &__imgBox {
         width: 100%;
         height: 100%;
-
+        padding: 0;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -356,8 +352,6 @@ a {
         margin: 0;
         font-size: var(--fs-sm);
         font-weight: 600;
-        overflow: hidden;
-        text-overflow: ellipsis;
         white-space: nowrap;
     }
 
@@ -370,7 +364,6 @@ a {
 
     &__price {
         color: var(--c-red);
-        font-weight: 800;
     }
 
     &__oldPrice {
